@@ -50,7 +50,7 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sample1.c">
+    <Compile Include="low_5_14.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
