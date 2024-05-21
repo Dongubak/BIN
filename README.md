@@ -159,3 +159,9 @@ while (1)
 #### 주의
 - 새로운 파일 생성시 configure 지정하기
 - PORT번호 맞는지 확인하기(실수 안하려면 그냥 비트 연산 쓰셈)
+
+### 외부환경 변화 감시
+- intrrupt
+- GPIO (General purpose input/ output)
+    - PORTD.7 = 1
+    - DDR : 0.5가 입력되었는지 확인 가능
