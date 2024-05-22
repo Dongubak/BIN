@@ -1,12 +1,9 @@
-// I/O Registers definitions
 #include <mega328p.h>
-
-// Delay functions
 #include <delay.h>
 #include <stdio.h>
 
 // ADC Voltage Reference: AVCC pin
-#define ADC_VREF_TYPE ((0<<REFS1) | (1<<REFS0) | (0<<ADLAR))
+#define ADC_VREF_TYPE ((1<<REFS1) | (1<<REFS0) | (0<<ADLAR))
 
 // Read the AD conversion result
 // Read Voltage=read_adc*(Vref/1024.0)
@@ -29,6 +26,8 @@ void main(void) {
   int i;
   int input_PIND, k_adc;
   float adc_voltage;
+  int currentTemperature;
+  int p;
 
   // Clock Oscillator division factor: 1
   #pragma optsize-
@@ -45,7 +44,7 @@ void main(void) {
   PORTD = (0<<PORTD5);
 
 
-  //8data, 1stop, 9600(ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½)
+  //8data, 1stop, 9600(ï¿½ï¿½ï¿?ï¿½ï¿½ï¿?
     UCSR0A=(0<<RXC0) | (0<<TXC0) | (0<<UDRE0) | (0<<FE0) | (0<<DOR0) | (0<<UPE0) | (0<<U2X0) | (0<<MPCM0);
     UCSR0B=(0<<RXCIE0) | (0<<TXCIE0) | (0<<UDRIE0) | (1<<RXEN0) | (1<<TXEN0) | (0<<UCSZ02) | (0<<RXB80) | (0<<TXB80);
     UCSR0C=(0<<UMSEL01) | (0<<UMSEL00) | (0<<UPM01) | (0<<UPM00) | (0<<USBS0) | (1<<UCSZ01) | (1<<UCSZ00) | (0<<UCPOL0);
@@ -103,9 +102,17 @@ void main(void) {
        }
      }
 
-     k_adc = read_adc(4);
-     adc_voltage = (k_adc/1024.0) * 5.0;
-     printf("Voltage is %d\n\r", (int)adc_voltage);
+     k_adc = read_adc(8);
+     
+     currentTemperature = (int)((k_adc/1024.0) * 1.1 * 1000); 
+     
+//     if(currentTemperature < 314) {                              
+//       p = 314 - 242 
+//     } else if(currentTemperature < 380) {
+//     } else {
+//     }
+     
+     printf("Voltage is %d\n\r", currentTemperature);
 
    }
   
