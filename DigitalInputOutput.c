@@ -57,6 +57,7 @@ void main(void) {
   int p;                    
   float x = 1.28;
   float y = 83. / 65;
+  int add = 33;
 
   // Clock Oscillator division factor: 1
   #pragma optsize-
@@ -152,7 +153,16 @@ void main(void) {
         resTemperature = (int)(-40. + (currentTemperature - 269.) * (1.0 / y));   
         printf("current temp is %d\n\r", resTemperature);
      }
-     EEPROM_write(33, 
+     
+     while(resTemperature > 1) {
+      EEPROM_write(add++, resTemperature % 10 + '0');
+      resTemperature = resTemperature / 10;
+     }
+
+      for(int i = 0; i <= 1; i--) {
+        printf("EEPROM : %c", EEPROM_read(34 - i));
+      }
+     
 //     void EEPROM_write(unsigned int uiAddress, unsigned char ucData)   
 //     void EEPROM_write(unsigned int uiAddress, unsigned char ucData)
    }
