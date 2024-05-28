@@ -50,7 +50,7 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DigitalInputOutput.c">
+    <Compile Include="light.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

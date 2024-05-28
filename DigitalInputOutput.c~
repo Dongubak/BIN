@@ -26,6 +26,10 @@ void main(void) {
   int i;
   int input_PIND, k_adc;
   float adc_voltage;
+  int currentTemperature;
+  int p;                    
+  float x = 1.28;
+  float y = 83. / 65;
 
   // Clock Oscillator division factor: 1
   #pragma optsize-
@@ -101,9 +105,24 @@ void main(void) {
      }
 
      k_adc = read_adc(8);
-     adc_voltage = (int)((k_adc/1024.0) * 1.1 * 100);
-     printf("Voltage is %d\n\r", (int)adc_voltage);
-
+     
+     currentTemperature = (int)((k_adc/1024.0) * 1.1 * 1000); 
+     
+//     if(currentTemperature < 314) {                              
+//       p = 314 - 242 
+//     } else if(currentTemperature < 380) {
+//     } else {
+//     }
+     
+     printf("Voltage is %d\n\r", currentTemperature);
+     currentTemperature = currentTemperature - 30;
+     
+     
+     if(currentTemperature > 385) {
+        printf("current temp is %d\n\r", (int)(25. + (currentTemperature - 352.) * (1.0 / x)));
+     } else {
+        printf("current temp is %d\n\r", (int)(-40. + (currentTemperature - 269.) * (1.0 / y)));
+     }
    }
   
   return;
