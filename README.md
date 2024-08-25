@@ -755,3 +755,29 @@ void main(void) {
   return;
 }
 ```
+
+## 5/29 실습
+
+1. delay함수 사용해서 10초마다 몇 초가 지났는지 출력
+  - delay함수 사용시 cpu는 다른 task처리 불가
+2. 타이머를 사용해서 10초마다 몇 초가 지났는지 출력
+  - cpu가 다른 task처리가 가능하다
+
+### 2번 테스트
+만약 타이머를 사용할 때 cpu가 다른 task를 처리할 수 없다면 1초마다 delay함수를 사용하여 printf출력을 하는 동작을 할 수 없을 것이다.
+
+하지만 타이머를 사용할 때 cpu가 다른 task를 처리할 수 있다면 1초마다 delay함수를 사용하여 printf출력을 하는 동작을 할 수 있다.
+
+#### 16M쓴다
+![alt text](image-18.png)
+
+#### timerN
+N이 커질 수록 더 많은 시간을 계산할 수 있음
+
+#### watch dog
+어느정도 시간이 되면 alert해줌
+
+
+
+
+![alt text](image-19.png)

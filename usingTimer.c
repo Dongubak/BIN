@@ -1,0 +1,115 @@
+/*******************************************************
+This program was created by the CodeWizardAVR V4.02 
+Automatic Program Generator
+� Copyright 1998-2024 Pavel Haiduc, HP InfoTech S.R.L.
+http://www.hpinfotech.ro
+
+Project : 
+Version : 
+Date    : 2024-05-29
+Author  : 
+Company : 
+Comments: 
+
+
+Chip type               : ATmega328P
+Program type            : Application
+AVR Core Clock frequency: 16.000000 MHz
+Memory model            : Small
+External RAM size       : 0
+Data Stack size         : 512
+*******************************************************/
+
+// I/O Registers definitions
+#include <mega328p.h>
+#include <delay.h>
+#include <stdio.h>
+
+long int count_i;
+int count_k;
+
+// Timer 0 overflow interrupt service routine
+interrupt [TIM0_OVF] void timer0_ovf_isr(void)
+{
+  
+// Reinitialize Timer 0 value
+  TCNT0=0xF9; ///249면 인터럽트
+  count_i++;
+  
+  if((count_i % 22321) == 0) {
+    count_k++;
+    printf("\r\n %d second", count_k * 16);
+  }
+// Place your code here
+//  printf("\n\r16ms");
+}
+
+// Declare your global variables here
+
+void main(void)
+{
+  int i = 0;
+// Declare your local variables here
+
+// Clock Oscillator division factor: 1
+#pragma optsize-
+CLKPR=(1<<CLKPCE);
+CLKPR=(0<<CLKPCE) | (0<<CLKPS3) | (0<<CLKPS2) | (0<<CLKPS1) | (0<<CLKPS0);
+#ifdef _OPTIMIZE_SIZE_
+#pragma optsize+
+#endif
+
+
+//// Timer/Counter 0 initialization
+//// Clock source: System Clock
+//// Clock value: 15.625 kHz
+//// Mode: CTC top=OCR0A
+//// OC0A output: Disconnected
+//// OC0B output: Disconnected
+//// Timer Period: 16 ms
+//TCCR0A=(0<<COM0A1) | (0<<COM0A0) | (0<<COM0B1) | (0<<COM0B0) | (1<<WGM01) | (0<<WGM00);
+//TCCR0B=(0<<WGM02) | (1<<CS02) | (0<<CS01) | (1<<CS00);
+//TCNT0=0xF9;
+//OCR0A=0xF9;
+//OCR0B=0x00;
+
+// Timer/Counter 0 initialization
+// Clock source: System Clock
+// Clock value: 15.625 kHz
+// Mode: Normal top=0xFF
+// OC0A output: Disconnected
+// OC0B output: Disconnected
+// Timer Period: 0.448 ms
+TCCR0A=(0<<COM0A1) | (0<<COM0A0) | (0<<COM0B1) | (0<<COM0B0) | (0<<WGM01) | (0<<WGM00);
+TCCR0B=(0<<WGM02) | (1<<CS02) | (0<<CS01) | (1<<CS00);
+TCNT0=0xF9;
+OCR0A=0xF9;
+OCR0B=0x00;
+
+
+// Timer/Counter 0 Interrupt(s) initialization
+TIMSK0=(0<<OCIE0B) | (0<<OCIE0A) | (1<<TOIE0);
+
+///U어쩌구
+
+
+UCSR0A=(0<<RXC0) | (0<<TXC0) | (0<<UDRE0) | (0<<FE0) | (0<<DOR0) | (0<<UPE0) | (0<<U2X0) | (0<<MPCM0);
+    UCSR0B=(0<<RXCIE0) | (0<<TXCIE0) | (0<<UDRIE0) | (1<<RXEN0) | (1<<TXEN0) | (0<<UCSZ02) | (0<<RXB80) | (0<<TXB80);
+    UCSR0C=(0<<UMSEL01) | (0<<UMSEL00) | (0<<UPM01) | (0<<UPM00) | (0<<USBS0) | (1<<UCSZ01) | (1<<UCSZ00) | (0<<UCPOL0);
+    UBRR0H=0x00;
+    UBRR0L=0x67;
+// Globally enable interrupts
+
+#asm("sei")  
+  count_i = 0;
+  count_k = 0;
+  i = 0;
+  while (1) {
+//     Place your code here
+//     delay_ms(1000);  
+//     printf("passed Time : %d\n\r", ++i);
+         while(1) printf("kkkk");
+  }
+  
+  return;
+}
