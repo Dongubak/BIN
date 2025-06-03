@@ -50,7 +50,7 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="light.c">
+    <Compile Include="second.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

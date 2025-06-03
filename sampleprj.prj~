@@ -7,9 +7,9 @@ A=
 C=
 D=2024-05-09
 Files=1
-OpenedFiles=5
-OF1=sample1.c
-ActiveTab=5
+OpenedFiles=2
+OF1=Debug\List\sampleprj.map
+ActiveTab=2
 DebugOutputListFilesDirectory=Debug\List
 DebugOutputObjectFilesDirectory=Debug
 DebugOutputExecutableFilesDirectory=Debug\Exe
@@ -20,16 +20,18 @@ OutputExecutableFilesDirectory=Release\Exe
 OutputLinkerFilesDirectory=Release\Link
 AllowDisplayFunctionCallTree=1
 CleanUp=2
-TimeStamp1=1487824169
-OF2=interrupt_5_14.c
-TimeStamp2=1488282232
+TimeStamp1=1488743399
+OF2=light.c
+TimeStamp2=1522183385
 OF3=dfsdf.c
 TimeStamp3=1487825429
 OF4=low_5_14.c
 TimeStamp4=1487826075
-F1=DigitalInputOutput.c
 OF5=DigitalInputOutput.c
-TimeStamp5=1488288659
+TimeStamp5=1488743502
+OF6=light.c
+TimeStamp6=1488743396
+F1=light.c
 [CompilerDebug]
 Chip=ATmega328P
 CPUClock=16000000
@@ -137,9 +139,9 @@ UseBootAppXmega=0
 UseUDSC_LGT8F=0
 RebuildAll=0
 LinkageInformationPresent=1
-COFFileTimeStamp=1488741883
-Build=50
-GlobalVarAddr=772
+COFFileTimeStamp=1522183110
+Build=62
+GlobalVarAddr=776
 EEPROMVarAddr=0
 [DefinedSymbolsDebug]
 Count=0
@@ -251,7 +253,7 @@ UseUDSC_LGT8F=0
 RebuildAll=1
 LinkageInformationPresent=0
 COFFileTimeStamp=-1
-Build=50
+Build=62
 IncludePath0=C:\cvavreval\inc
 IncludePath1=
 IncludePath2=
@@ -416,6 +418,7 @@ UseAlphanumericLCD=0
 GLCDDisplayIndex=0
 UseResistiveTouchscreen=0
 UseENC28J60=0
+UseWiznet=0
 [BeforeMake]
 RunUserProg=0
 WaitUserProgFinish=1
@@ -486,12 +489,14 @@ CheckSignature=1
 CheckErasure=0
 PreserveEEPROM=0
 VerifyProgramming=1
-ProgrammingCounter=29
+ProgrammingCounter=58
 RunUserProg=0
 UserProgPath=
 UserProgCmdLine=
 UserProgWorkDir=
 WaitUserProgFinish=1
+ProgrammerType=7
+UpdateProgV403=1
 [BuildInfoCompiler]
 L1=Build configuration: Debug
 L2=Chip: ATmega328P
@@ -509,41 +514,41 @@ L13=Enhanced function parameters passing: Mode 2
 L14=Automatic register allocation: Yes
 L15=Smart register allocation: Yes
 L16=
-L17=Build: 50
-L18=13049 line(s) compiled
+L17=Build: 62
+L18=13053 line(s) compiled
 L19=No errors
-L20=2 warning(s)
+L20=No warnings
 L21=
 L22=Bit variables size: 0 byte(s)
 L23=
 L24=Data Stack area: 0x100 to 0x2FF
 L25=Data Stack size: 512 byte(s)
-L26=Estimated Data Stack usage: 146 byte(s)
+L26=Estimated Data Stack usage: 135 byte(s)
 L27=
-L28=RAM Global variables area: 0x300 to 0x303
-L29=RAM Global variables size: 4 byte(s)
+L28=RAM Global variables area: 0x300 to 0x307
+L29=RAM Global variables size: 8 byte(s)
 L30=
-L31=Hardware Stack area: 0x304 to 0x8FF
-L32=Hardware Stack size: 1532 byte(s)
+L31=Hardware Stack area: 0x308 to 0x8FF
+L32=Hardware Stack size: 1528 byte(s)
 L33=
 L34=Heap size: 0 byte(s)
 L35=
 Lines=38
 L36=EEPROM usage: 0 byte(s), 0.0% of EEPROM
-L37=Program size: 2174 words (4348 bytes), 13.3% of FLASH
-L38=342 words (684 bytes), 13.6% reduced by Code Compression
+L37=Program size: 2457 words (4914 bytes), 15.0% of FLASH
+L38=370 words (740 bytes), 13.1% reduced by Code Compression
 [BuildInfoAssembler]
 Lines=12
 L1=AVRASM: AVR macro assembler 2.1.30 (build 592 Nov  7 2008 12:38:17)
 L2=Copyright (C) 1995-2008 ATMEL Corporation
 L3=
-L4=C:\cvavreval\BIN\Debug\List\sampleprj.asm(4023): No EEPROM data, deleting C:\cvavreval\BIN\Debug\Exe\sampleprj.eep
+L4=C:\cvavreval\BIN\Debug\List\sampleprj.asm(4367): No EEPROM data, deleting C:\cvavreval\BIN\Debug\Exe\sampleprj.eep
 L5=
 L6=ATmega328P memory use summary [bytes]:
 L7=Segment   Begin    End      Code   Data   Used    Size   Use%
 L8=---------------------------------------------------------------
-L9=[.cseg] 0x000000 0x0010fc   4258     90   4348   32768  13.3%
-L10=[.dseg] 0x000100 0x000304      0      4      4    2048   0.2%
+L9=[.cseg] 0x000000 0x001332   4800    114   4914   32768  15.0%
+L10=[.dseg] 0x000100 0x000308      0      8      8    2048   0.4%
 L11=[.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 L12=
 [Bookmarks0]
@@ -551,9 +556,9 @@ Row=0
 Column=0
 ScrollPosX=0
 ScrollPosY=0
-TimeStamp=1488288661
+TimeStamp=1522183669
 [BookmarksFoldedCode]
-Files=11
+Files=14
 F1=C:\cvavreval\BIN\sample1.c
 F2=sample1.c
 F3=C:\cvavreval\BIN\low_5_14.c
@@ -565,6 +570,9 @@ F8=interrupt_5_14.c
 F9=C:\cvavreval\BIN\DigitalInputOutput.c
 F10=DigitalInputOutput.c
 F11=untitled.c
+F12=C:\cvavreval\BIN\light.c
+F13=light.c
+F14=Debug\List\sampleprj.map
 [Bookmarks1]
 TimeStamp=1487474440
 Row=32
@@ -588,7 +596,7 @@ TimeStamp=1487824169
 Row=134
 Column=28
 ScrollPosX=0
-ScrollPosY=126
+ScrollPosY=109
 BK0=-1
 BK1=-1
 BK2=-1
@@ -693,11 +701,11 @@ BK7=-1
 BK8=-1
 BK9=-1
 [Bookmarks8]
-TimeStamp=1488282232
-Row=48
-Column=50
+TimeStamp=1488881323
+Row=0
+Column=0
 ScrollPosX=0
-ScrollPosY=144
+ScrollPosY=0
 BK0=-1
 BK1=-1
 BK2=-1
@@ -727,9 +735,9 @@ BK9=-1
 [FoldedCode9]
 Blocks=0
 [Bookmarks10]
-TimeStamp=1488288659
-Row=105
-Column=45
+TimeStamp=1488882700
+Row=0
+Column=0
 ScrollPosX=0
 ScrollPosY=0
 BK0=-1
@@ -742,16 +750,6 @@ BK6=-1
 BK7=-1
 BK8=-1
 BK9=-1
-[FoldedCode10]
-Blocks=0
-[FoldedCode6]
-Blocks=0
-[FoldedCode7]
-Blocks=0
-[FoldedCode8]
-Blocks=0
-[FoldedCode2]
-Blocks=0
 [Bookmarks11]
 TimeStamp=1487473902
 Row=0
@@ -770,14 +768,77 @@ BK8=-1
 BK9=-1
 [FoldedCode11]
 Blocks=0
+[Bookmarks12]
+TimeStamp=1488743396
+Row=162
+Column=57
+ScrollPosX=0
+ScrollPosY=155
+BK0=-1
+BK1=-1
+BK2=-1
+BK3=-1
+BK4=-1
+BK5=-1
+BK6=-1
+BK7=-1
+BK8=-1
+BK9=-1
+[FoldedCode12]
+Blocks=0
+[Bookmarks13]
+TimeStamp=1522183385
+Row=23
+Column=63
+ScrollPosX=0
+ScrollPosY=10
+BK0=-1
+BK1=-1
+BK2=-1
+BK3=-1
+BK4=-1
+BK5=-1
+BK6=-1
+BK7=-1
+BK8=-1
+BK9=-1
+[FoldedCode10]
+Blocks=0
+[FoldedCode7]
+Blocks=0
+[FoldedCode2]
+Blocks=0
+[FoldedCode6]
+Blocks=0
+[FoldedCode8]
+Blocks=0
 [HeadersList]
 Files=1
-F1=C:\cvavreval\BIN\DigitalInputOutput.c
+F1=C:\cvavreval\BIN\light.c
 [Header1]
-Files=6
+Files=5
 F1=..\inc\mega328p.h
 F2=..\inc\mega328p_bits.h
-F3=..\inc\delay.h
-F4=..\inc\stdio.h
-F5=..\inc\io.h
-F6=..\inc\stdarg.h
+F3=..\inc\stdio.h
+F4=..\inc\io.h
+F5=..\inc\stdarg.h
+[FoldedCode13]
+Blocks=0
+[Bookmarks14]
+TimeStamp=1522183110
+Row=0
+Column=0
+ScrollPosX=0
+ScrollPosY=0
+BK0=-1
+BK1=-1
+BK2=-1
+BK3=-1
+BK4=-1
+BK5=-1
+BK6=-1
+BK7=-1
+BK8=-1
+BK9=-1
+[FoldedCode14]
+Blocks=0
